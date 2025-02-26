@@ -1,0 +1,256 @@
+.charts-container {
+  padding: 1.5rem;
+  
+  .charts-header {
+    margin-bottom: 2rem;
+    
+    h1 {
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .lead {
+      font-size: 1.1rem;
+      color: #6c757d;
+    }
+  }
+  
+  .chart-tabs {
+    margin-bottom: 1.5rem;
+    
+    .nav-tabs {
+      border-bottom: 1px solid #dee2e6;
+      display: flex;
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+      
+      .nav-item {
+        margin-bottom: -1px;
+        
+        .nav-link {
+          display: block;
+          padding: 0.5rem 1rem;
+          border: 1px solid transparent;
+          border-top-left-radius: 0.25rem;
+          border-top-right-radius: 0.25rem;
+          text-decoration: none;
+          transition: all 0.2s ease;
+          color: #495057;
+          
+          &:hover {
+            border-color: #e9ecef #e9ecef #dee2e6;
+          }
+          
+          &.active {
+            color: #007bff;
+            background-color: #fff;
+            border-color: #dee2e6 #dee2e6 #fff;
+          }
+        }
+      }
+    }
+  }
+  
+  .tab-content {
+    .tab-pane {
+      display: none;
+      
+      &.active {
+        display: block;
+      }
+    }
+  }
+  
+  .chart-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .chart-card {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+    
+    &.wide {
+      grid-column: 1 / -1;
+      margin-bottom: 1.5rem;
+      flex-direction: column;
+    }
+    
+    .chart-card-header {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+      background-color: #f8f9fa;
+      
+      h3 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+    }
+    
+    .chart-card-body {
+      padding: 1rem;
+      flex-grow: 1;
+      
+      .chart-placeholder {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        background-color: #f8f9fa;
+        border-radius: 0.25rem;
+        
+        canvas {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+      
+      .chart-description {
+        margin-bottom: 0;
+        color: #6c757d;
+      }
+    }
+    
+    .chart-card-footer {
+      padding: 1rem;
+      border-top: 1px solid #eee;
+      background-color: #f8f9fa;
+      
+      a, button {
+        transition: all 0.2s ease;
+      }
+    }
+  }
+  
+  .chart-section {
+    margin-bottom: 3rem;
+    
+    h2 {
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    > p {
+      margin-bottom: 1.5rem;
+      color: #6c757d;
+    }
+  }
+  
+  .chart-examples {
+    .chart-card {
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      &.wide {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+        height: auto;
+        
+        .chart-card-body {
+          padding: 1.5rem;
+          
+          canvas {
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        .chart-card-footer {
+          padding: 1rem 1.5rem;
+          
+          p {
+            margin-bottom: 0;
+            color: #6c757d;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Dark theme support
+:host-context(.dark-theme) {
+  .charts-container {
+    .chart-card {
+      background-color: #2d3748;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      
+      .chart-card-header {
+        background-color: #1a202c;
+        border-bottom-color: #2d3748;
+        
+        h3 {
+          color: #e2e8f0;
+        }
+      }
+      
+      .chart-card-body {
+        .chart-placeholder {
+          background-color: #1a202c;
+        }
+        
+        .chart-description {
+          color: #a0aec0;
+        }
+      }
+      
+      .chart-card-footer {
+        background-color: #1a202c;
+        border-top-color: #2d3748;
+      }
+    }
+    
+    .chart-tabs {
+      .nav-tabs {
+        border-bottom-color: #4a5568;
+        
+        .nav-item {
+          .nav-link {
+            color: #a0aec0;
+            
+            &:hover {
+              border-color: #2d3748 #2d3748 #4a5568;
+            }
+            
+            &.active {
+              color: #63b3ed;
+              background-color: #1a202c;
+              border-color: #4a5568 #4a5568 #1a202c;
+            }
+          }
+        }
+      }
+    }
+    
+    .charts-header {
+      .lead {
+        color: #a0aec0;
+      }
+    }
+    
+    .chart-section {
+      > p {
+        color: #a0aec0;
+      }
+    }
+  }
+}

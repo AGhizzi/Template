@@ -1,0 +1,144 @@
+<aside class="sidebar" [class.collapsed]="collapsed" [style.backgroundColor]="sidebarBgColor">
+  <!-- Logo and App Title -->
+  <div class="sidebar-header">
+    <div class="logo-container">
+      <!-- App logo - replace with your actual logo -->
+      <div class="app-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32">
+          <path fill="currentColor" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+      </div>
+      <span class="app-title" *ngIf="!collapsed">App Template</span>
+    </div>
+    <!-- Collapse button for desktop -->
+    <button class="collapse-button" (click)="toggleCollapse()" *ngIf="!isMobile">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path *ngIf="!collapsed" fill="currentColor" d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
+        <path *ngIf="collapsed" fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav class="sidebar-nav">
+    <ul class="nav-list">
+      <!-- Dashboard -->
+      <li class="nav-item" [class.active]="activeMenuItem === 'dashboard'" [class.expanded]="activeMenuItem === 'dashboard'">
+        <a class="nav-link" routerLink="/dashboard" (click)="setActiveMenuItem('dashboard')">
+          <div class="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path fill="currentColor" d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"></path>
+            </svg>
+          </div>
+          <span class="nav-text" *ngIf="!collapsed">Dashboard</span>
+        </a>
+      </li>
+      
+      <!-- Charts with sub-menu -->
+      <li class="nav-item" [class.active]="activeMenuItem === 'charts'" [class.expanded]="expandedItems.includes('charts')">
+        <div class="nav-link" (click)="toggleSubMenu('charts')">
+          <div class="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path fill="currentColor" d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"></path>
+            </svg>
+          </div>
+          <span class="nav-text" *ngIf="!collapsed">Charts</span>
+          <div class="submenu-toggle" *ngIf="!collapsed">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
+            </svg>
+          </div>
+        </div>
+        
+        <!-- Sub-menu for charts -->
+        <ul class="submenu" [class.active]="expandedItems.includes('charts')">
+          <li class="submenu-item" [class.active]="activeMenuItem === 'bar-charts'">
+            <a class="submenu-link" routerLink="/charts/bar-charts" (click)="setActiveMenuItem('bar-charts')">
+              <span class="nav-text">Bar Charts</span>
+            </a>
+          </li>
+          <li class="submenu-item" [class.active]="activeMenuItem === 'pie-charts'">
+            <a class="submenu-link" routerLink="/charts/pie-charts" (click)="setActiveMenuItem('pie-charts')">
+              <span class="nav-text">Pie Charts</span>
+            </a>
+          </li>
+          <li class="submenu-item" [class.active]="activeMenuItem === 'line-charts'">
+            <a class="submenu-link" routerLink="/charts/line-charts" (click)="setActiveMenuItem('line-charts')">
+              <span class="nav-text">Line Charts</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <!-- Tables -->
+      <li class="nav-item" [class.active]="activeMenuItem === 'tables'" [class.expanded]="activeMenuItem === 'tables'">
+        <a class="nav-link" routerLink="/tables" (click)="setActiveMenuItem('tables')">
+          <div class="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path fill="currentColor" d="M3 3v18h18V3H3zm8 16H5v-6h6v6zm0-8H5V5h6v6zm8 8h-6v-6h6v6zm0-8h-6V5h6v6z"></path>
+            </svg>
+          </div>
+          <span class="nav-text" *ngIf="!collapsed">Tables</span>
+        </a>
+      </li>
+      
+      <!-- Buttons -->
+      <li class="nav-item" [class.active]="activeMenuItem === 'buttons'" [class.expanded]="activeMenuItem === 'buttons'">
+        <a class="nav-link" routerLink="/buttons" (click)="setActiveMenuItem('buttons')">
+          <div class="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+            </svg>
+          </div>
+          <span class="nav-text" *ngIf="!collapsed">Buttons</span>
+        </a>
+      </li>
+      
+      <!-- UI Components with sub-menu -->
+      <li class="nav-item" [class.active]="activeMenuItem === 'components'" [class.expanded]="expandedItems.includes('components')">
+        <div class="nav-link" (click)="toggleSubMenu('components')">
+          <div class="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path fill="currentColor" d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm0 2v14h18V5H3zm6 2h10v2H9V7zm0 4h10v2H9v-2zm0 4h10v2H9v-2zM5 7h2v2H5V7zm0 4h2v2H5v-2zm0 4h2v2H5v-2z"></path>
+            </svg>
+          </div>
+          <span class="nav-text" *ngIf="!collapsed">UI Components</span>
+          <div class="submenu-toggle" *ngIf="!collapsed">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
+            </svg>
+          </div>
+        </div>
+        
+        <!-- Sub-menu for UI components -->
+        <ul class="submenu" [class.active]="expandedItems.includes('components')">
+          <li class="submenu-item" [class.active]="activeMenuItem === 'modals'">
+            <a class="submenu-link" routerLink="/components/modals" (click)="setActiveMenuItem('modals')">
+              <span class="nav-text">Modals</span>
+            </a>
+          </li>
+          <li class="submenu-item" [class.active]="activeMenuItem === 'notifications'">
+            <a class="submenu-link" routerLink="/components/notifications" (click)="setActiveMenuItem('notifications')">
+              <span class="nav-text">Notifications</span>
+            </a>
+          </li>
+          <li class="submenu-item" [class.active]="activeMenuItem === 'forms'">
+            <a class="submenu-link" routerLink="/components/forms" (click)="setActiveMenuItem('forms')">
+              <span class="nav-text">Forms</span>
+            </a>
+          </li>
+          <li class="submenu-item" [class.active]="activeMenuItem === 'cards'">
+            <a class="submenu-link" routerLink="/components/cards" (click)="setActiveMenuItem('cards')">
+              <span class="nav-text">Cards</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  
+  <!-- Sidebar Footer (optional) -->
+  <div class="sidebar-footer" *ngIf="!collapsed">
+    <div class="sidebar-version">v1.0.0</div>
+  </div>
+</aside>

@@ -1,0 +1,225 @@
+<div class="charts-container">
+  <!-- Section Title -->
+  <header class="charts-header">
+    <h1>Charts</h1>
+    <p class="lead">Interactive data visualization components for your application</p>
+  </header>
+
+  <!-- Tabs Navigation -->
+  <div class="chart-tabs">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="activeTab === 'overview'" (click)="setActiveTab('overview')">Overview</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="activeTab === 'bar'" (click)="setActiveTab('bar')">Bar Charts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="activeTab === 'line'" (click)="setActiveTab('line')">Line Charts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="activeTab === 'pie'" (click)="setActiveTab('pie')">Pie Charts</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Tab Content -->
+  <div class="tab-content">
+    <!-- Overview Tab -->
+    <div class="tab-pane" [class.active]="activeTab === 'overview'" id="overview">
+      <div class="chart-cards-container">
+        <!-- Bar Chart Card -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3>Bar Charts</h3>
+          </div>
+          <div class="chart-card-body">
+            <div class="chart-placeholder">
+              <canvas id="barChartSample" width="400" height="200"></canvas>
+            </div>
+            <p class="chart-description">
+              Bar charts are excellent for comparing multiple data sets side by side or showing changes over time with discrete data points.
+            </p>
+          </div>
+          <div class="chart-card-footer">
+            <a routerLink="/charts/bar-charts" class="btn btn-outline-primary">View Bar Charts</a>
+          </div>
+        </div>
+
+        <!-- Line Chart Card -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3>Line Charts</h3>
+          </div>
+          <div class="chart-card-body">
+            <div class="chart-placeholder">
+              <canvas id="lineChartSample" width="400" height="200"></canvas>
+            </div>
+            <p class="chart-description">
+              Line charts work best for continuous data sets, displaying trends, patterns and changes over a period of time.
+            </p>
+          </div>
+          <div class="chart-card-footer">
+            <a routerLink="/charts/line-charts" class="btn btn-outline-primary">View Line Charts</a>
+          </div>
+        </div>
+
+        <!-- Pie Chart Card -->
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3>Pie Charts</h3>
+          </div>
+          <div class="chart-card-body">
+            <div class="chart-placeholder">
+              <canvas id="pieChartSample" width="400" height="200"></canvas>
+            </div>
+            <p class="chart-description">
+              Pie charts are ideal for showing proportional data and the relationship of parts to a whole.
+            </p>
+          </div>
+          <div class="chart-card-footer">
+            <a routerLink="/charts/pie-charts" class="btn btn-outline-primary">View Pie Charts</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bar Charts Tab -->
+    <div class="tab-pane" [class.active]="activeTab === 'bar'" id="bar">
+      <div class="chart-section">
+        <h2>Bar Chart Examples</h2>
+        <p>Bar charts represent categorical data with rectangular bars where heights are proportional to the values they represent.</p>
+        
+        <div class="chart-examples">
+          <div class="chart-card wide">
+            <div class="chart-card-header">
+              <h3>Vertical Bar Chart</h3>
+            </div>
+            <div class="chart-card-body">
+              <canvas id="verticalBarChart" width="800" height="300"></canvas>
+            </div>
+            <div class="chart-card-footer">
+              <p>Standard vertical bar chart comparing values across categories.</p>
+            </div>
+          </div>
+          
+          <div class="chart-card wide">
+            <div class="chart-card-header">
+              <h3>Horizontal Bar Chart</h3>
+            </div>
+            <div class="chart-card-body">
+              <canvas id="horizontalBarChart" width="800" height="300"></canvas>
+            </div>
+            <div class="chart-card-footer">
+              <p>Horizontal bar chart, useful when category labels are long.</p>
+            </div>
+          </div>
+          
+          <div class="chart-card wide">
+            <div class="chart-card-header">
+              <h3>Stacked Bar Chart</h3>
+            </div>
+            <div class="chart-card-body">
+              <canvas id="stackedBarChart" width="800" height="300"></canvas>
+            </div>
+            <div class="chart-card-footer">
+              <p>Stacked bars showing the composition of each category.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Line Charts Tab -->
+    <div class="tab-pane" [class.active]="activeTab === 'line'" id="line">
+      <div class="chart-section">
+        <h2>Line Chart Examples</h2>
+        <p>Line charts display information as a series of data points connected by straight line segments.</p>
+        
+        <div class="chart-examples">
+          <div class="chart-card wide">
+            <div class="chart-card-header">
+              <h3>Basic Line Chart</h3>
+            </div>
+            <div class="chart-card-body">
+              <canvas id="basicLineChart" width="800" height="300"></canvas>
+            </div>
+            <div class="chart-card-footer">
+              <p>Simple line chart showing trends over time.</p>
+            </div>
+          </div>
+          
+          <div class="chart-card wide">
+            <div class="chart-card-header">
+              <h3>Multi-line Chart</h3>
+            </div>
+            <div class="chart-card-body">
+              <canvas id="multiLineChart" width="800" height="300"></canvas>
+            </div>
+            <div class="chart-card-footer">
+              <p>Multiple lines comparing different data sets.</p>
+            </div>
+          </div>
+          
+          <div class="chart-card wide">
+            <div class="chart-card-header">
+              <h3>Area Chart</h3>
+            </div>
+            <div class="chart-card-body">
+              <canvas id="areaChart" width="800" height="300"></canvas>
+            </div>
+            <div class="chart-card-footer">
+              <p>Line chart with the area below the line filled.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pie Charts Tab -->
+    <div class="tab-pane" [class.active]="activeTab === 'pie'" id="pie">
+      <div class="chart-section">
+        <h2>Pie Chart Examples</h2>
+        <p>Pie charts show the relative sizes of data in a circular graph divided into slices.</p>
+        
+        <div class="chart-examples">
+          <div class="chart-card wide">
+            <div class="chart-card-header">
+              <h3>Basic Pie Chart</h3>
+            </div>
+            <div class="chart-card-body">
+              <canvas id="basicPieChart" width="800" height="300"></canvas>
+            </div>
+            <div class="chart-card-footer">
+              <p>Simple pie chart showing proportional distribution.</p>
+            </div>
+          </div>
+          
+          <div class="chart-card wide">
+            <div class="chart-card-header">
+              <h3>Donut Chart</h3>
+            </div>
+            <div class="chart-card-body">
+              <canvas id="donutChart" width="800" height="300"></canvas>
+            </div>
+            <div class="chart-card-footer">
+              <p>Donut chart with center cutout for additional information.</p>
+            </div>
+          </div>
+          
+          <div class="chart-card wide">
+            <div class="chart-card-header">
+              <h3>Multi-level Pie Chart</h3>
+            </div>
+            <div class="chart-card-body">
+              <canvas id="nestedPieChart" width="800" height="300"></canvas>
+            </div>
+            <div class="chart-card-footer">
+              <p>Nested pie sections showing hierarchical data relationships.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "labels": ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8"],
+  "datasets": [
+    {
+      "label": "New Users",
+      "data": [65, 59, 80, 81, 56, 55, 40, 62],
+      "borderColor": "#4caf50",
+      "backgroundColor": "rgba(76, 175, 80, 0.1)"
+    },
+    {
+      "label": "Active Users",
+      "data": [28, 48, 40, 19, 86, 27, 90, 85],
+      "borderColor": "#2196f3",
+      "backgroundColor": "rgba(33, 150, 243, 0.1)"
+    },
+    {
+      "label": "Conversions",
+      "data": [12, 19, 30, 25, 42, 18, 35, 40],
+      "borderColor": "#ff9800",
+      "backgroundColor": "rgba(255, 152, 0, 0.1)"
+    }
+  ]
+}

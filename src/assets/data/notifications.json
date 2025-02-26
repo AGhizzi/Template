@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "type": "success",
+    "title": "Operation Successful",
+    "message": "The data has been saved successfully.",
+    "date": "2024-02-25T12:30:00"
+  },
+  {
+    "id": 2,
+    "type": "error",
+    "title": "Operation Failed",
+    "message": "There was an error processing your request. Please try again.",
+    "date": "2024-02-25T12:25:00"
+  },
+  {
+    "id": 3,
+    "type": "warning",
+    "title": "Warning",
+    "message": "Your account is approaching storage limits. Consider upgrading your plan.",
+    "date": "2024-02-25T11:45:00"
+  },
+  {
+    "id": 4,
+    "type": "info",
+    "title": "Information",
+    "message": "System maintenance scheduled for tomorrow at 2 AM.",
+    "date": "2024-02-25T10:20:00"
+  },
+  {
+    "id": 5,
+    "type": "success",
+    "title": "Profile Updated",
+    "message": "Your profile information has been updated successfully.",
+    "date": "2024-02-24T16:40:00"
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "profilePicture": "/assets/images/default-avatar.png",
+    "role": "Administrator",
+    "lastLogin": "2024-02-25T10:24:00",
+    "status": "Active",
+    "permissions": ["read", "write", "delete", "admin"]
+  },
+  {
+    "id": 2,
+    "firstName": "Sarah",
+    "lastName": "Miller",
+    "email": "sarah.m@example.com",
+    "profilePicture": "/assets/images/avatar-2.png",
+    "role": "Editor",
+    "lastLogin": "2024-02-24T15:45:00",
+    "status": "Active",
+    "permissions": ["read", "write"]
+  },
+  {
+    "id": 3,
+    "firstName": "Robert",
+    "lastName": "Johnson",
+    "email": "robert@example.com",
+    "profilePicture": "/assets/images/avatar-3.png",
+    "role": "User",
+    "lastLogin": "2024-02-24T11:30:00",
+    "status": "Active",
+    "permissions": ["read"]
+  },
+  {
+    "id": 4,
+    "firstName": "Amanda",
+    "lastName": "Wilson",
+    "email": "amanda.w@example.com",
+    "profilePicture": "/assets/images/avatar-4.png",
+    "role": "Manager",
+    "lastLogin": "2024-02-23T17:12:00",
+    "status": "Active",
+    "permissions": ["read", "write", "delete"]
+  },
+  {
+    "id": 5,
+    "firstName": "Brian",
+    "lastName": "Thompson",
+    "email": "brian.t@example.com",
+    "profilePicture": "/assets/images/avatar-5.png",
+    "role": "Developer",
+    "lastLogin": "2024-02-23T14:30:00",
+    "status": "Active",
+    "permissions": ["read", "write"]
+  }
+]

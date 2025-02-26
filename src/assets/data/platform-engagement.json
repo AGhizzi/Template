@@ -1,0 +1,6 @@
+{
+  "platforms": ["Desktop", "Mobile", "Tablet", "iOS App", "Android App"],
+  "users": [6500, 8900, 2300, 4700, 5100],
+  "sessions": [12000, 19000, 3200, 7500, 8700],
+  "colors": ["#1976d2", "#2196f3", "#64b5f6", "#90caf9", "#bbdefb"]
+}

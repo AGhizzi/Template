@@ -1,0 +1,200 @@
+<div class="dashboard-container">
+  <!-- Overview Section -->
+  <section class="dashboard-section overview-section">
+    <h2>Dashboard Overview</h2>
+    
+    <div class="card-grid">
+      <!-- Stats Card 1 -->
+      <div class="card stat-card">
+        <div class="stat-icon bg-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-title">Total Users</h3>
+          <p class="stat-value">2,845</p>
+          <p class="stat-change positive">+12.5% from last month</p>
+        </div>
+      </div>
+      
+      <!-- Stats Card 2 -->
+      <div class="card stat-card">
+        <div class="stat-icon bg-info">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-title">Active Sessions</h3>
+          <p class="stat-value">482</p>
+          <p class="stat-change positive">+5.2% from last week</p>
+        </div>
+      </div>
+      
+      <!-- Stats Card 3 -->
+      <div class="card stat-card">
+        <div class="stat-icon bg-success">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23"></line>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-title">Revenue</h3>
+          <p class="stat-value">$12,450</p>
+          <p class="stat-change positive">+8.3% from last month</p>
+        </div>
+      </div>
+      
+      <!-- Stats Card 4 -->
+      <div class="card stat-card">
+        <div class="stat-icon bg-warning">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-title">Avg. Time on Site</h3>
+          <p class="stat-value">5m 32s</p>
+          <p class="stat-change negative">-1.4% from last week</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Charts Section -->
+  <section class="dashboard-section">
+    <h2>Performance Analytics</h2>
+    
+    <div class="chart-grid">
+      <!-- Line Chart -->
+      <div class="card chart-card">
+        <h3>Monthly Revenue Trends</h3>
+        <div class="chart-container">
+          <canvas #revenueChart></canvas>
+        </div>
+      </div>
+      
+      <!-- Bar Chart -->
+      <div class="card chart-card">
+        <h3>User Engagement by Platform</h3>
+        <div class="chart-container">
+          <canvas #platformChart></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Recent Activity Section -->
+  <section class="dashboard-section">
+    <h2>Recent Activity</h2>
+    
+    <div class="card">
+      <table class="table activity-table">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Activity</th>
+            <th>Date & Time</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="user-avatar">
+                <span class="avatar-initials">JD</span>
+              </div>
+              <div class="user-info">
+                <p class="user-name">John Doe</p>
+                <p class="user-email">john.doe&#64;example.com</p>
+              </div>
+            </td>
+            <td>Completed profile update</td>
+            <td>Feb 25, 2024 - 10:24 AM</td>
+            <td><span class="status-badge success">Completed</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="user-avatar">
+                <span class="avatar-initials">SM</span>
+              </div>
+              <div class="user-info">
+                <p class="user-name">Sarah Miller</p>
+                <p class="user-email">sarah.m&#64;example.com</p>
+              </div>
+            </td>
+            <td>Published new content</td>
+            <td>Feb 24, 2024 - 3:45 PM</td>
+            <td><span class="status-badge success">Published</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="user-avatar">
+                <span class="avatar-initials">RJ</span>
+              </div>
+              <div class="user-info">
+                <p class="user-name">Robert Johnson</p>
+                <p class="user-email">robert&#64;example.com</p>
+              </div>
+            </td>
+            <td>Started data import process</td>
+            <td>Feb 24, 2024 - 11:30 AM</td>
+            <td><span class="status-badge pending">In Progress</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="user-avatar">
+                <span class="avatar-initials">AW</span>
+              </div>
+              <div class="user-info">
+                <p class="user-name">Amanda Wilson</p>
+                <p class="user-email">amanda.w&#64;example.com</p>
+              </div>
+            </td>
+            <td>Submitted expense report</td>
+            <td>Feb 23, 2024 - 5:12 PM</td>
+            <td><span class="status-badge warning">Pending Approval</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="user-avatar">
+                <span class="avatar-initials">BT</span>
+              </div>
+              <div class="user-info">
+                <p class="user-name">Brian Thompson</p>
+                <p class="user-email">brian.t&#64;example.com</p>
+              </div>
+            </td>
+            <td>Updated system settings</td>
+            <td>Feb 23, 2024 - 2:30 PM</td>
+            <td><span class="status-badge success">Completed</span></td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <!-- Pagination -->
+      <div class="pagination-container">
+        <div class="pagination-info">
+          Showing <span>{{ (currentPage - 1) * itemsPerPage + 1 }}</span> to <span>{{ currentPage * itemsPerPage > totalItems ? totalItems : currentPage * itemsPerPage }}</span> of <span>{{ totalItems }}</span> entries
+        </div>
+        <div class="pagination">
+          <button class="pagination-btn" [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">&laquo;</button>
+          <button 
+            *ngFor="let page of getPageArray()" 
+            class="pagination-btn" 
+            [class.active]="page === currentPage"
+            (click)="changePage(page)">
+            {{ page }}
+          </button>
+          <button class="pagination-btn" [disabled]="currentPage === getTotalPages()" (click)="changePage(currentPage + 1)">&raquo;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

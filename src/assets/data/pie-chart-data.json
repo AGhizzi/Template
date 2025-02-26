@@ -1,0 +1,5 @@
+{
+  "labels": ["Search Engine", "Direct", "Email", "Social Media", "Referral"],
+  "data": [35, 25, 20, 15, 5],
+  "colors": ["#4caf50", "#2196f3", "#ff9800", "#f44336", "#9c27b0"]
+}
