@@ -77,11 +77,15 @@ export class SidebarComponent implements OnInit, OnDestroy {
       this.expandedItems.push(menuItem);
     }
     
-    // On mobile or when sidebar is collapsed, navigate to the first submenu item
-    if (this.isMobile || this.collapsed) {
-      if (menuItem === 'charts') {
-        this.router.navigate(['/charts/bar-charts']);
-      }
+    // Handle navigation for both mobile and desktop views
+    if (menuItem === 'charts') {
+      this.router.navigate(['/charts/bar-charts']);
+    } else if (menuItem === 'tables') {
+      this.router.navigate(['/tables']);
+    } else if (menuItem === 'buttons') {
+      this.router.navigate(['/buttons']);
+    } else if (menuItem === 'components') {
+      this.router.navigate(['/components']);
     }
   }
   
@@ -108,10 +112,23 @@ export class SidebarComponent implements OnInit, OnDestroy {
     
     if (url.includes('/dashboard')) {
       this.activeMenuItem = 'dashboard';
-    } else if (url.includes('/charts/bar-charts')) {
-      this.activeMenuItem = 'bar-charts';
+    } else if (url.includes('/charts')) {
+      if (url.includes('/bar-charts')) {
+        this.activeMenuItem = 'bar-charts';
+      } else if (url.includes('/pie-charts')) {
+        this.activeMenuItem = 'pie-charts';
+      } else if (url.includes('/line-charts')) {
+        this.activeMenuItem = 'line-charts';
+      }
       this.expandedItems = ['charts'];
-    } else if (url.includes('/charts/pie-charts')) {
+    } else if (url.includes('/tables')) {
+      this.activeMenuItem = 'tables';
+    } else if (url.includes('/buttons')) {
+      this.activeMenuItem = 'buttons';
+    } else if (url.includes('/components')) {
+      this.activeMenuItem = 'components';
+    }
+  }
       this.activeMenuItem = 'pie-charts';
       this.expandedItems = ['charts'];
     } else if (url.includes('/charts/line-charts')) {
