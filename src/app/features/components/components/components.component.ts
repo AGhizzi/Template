@@ -1,15 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { 
+  faRocket, faArrowUp, faCheckCircle, 
+  faExclamationTriangle, faInfoCircle, 
+  faSave, faEdit, faTrash, faCheck 
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-components',
-  standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './components.component.html',
-  styleUrls: ['./components.component.scss']  // Note: Changed from styleUrl to styleUrls
+  styleUrls: ['./components.component.scss'],
+  standalone: true,
+  imports: [CommonModule, FontAwesomeModule]
 })
-export class ComponentsComponent implements OnInit {
+export class ComponentsComponent {
+  // FontAwesome icons
+  faRocket = faRocket;
+  faArrowUp = faArrowUp;
+  faCheckCircle = faCheckCircle;
+  faExclamationTriangle = faExclamationTriangle;
+  faInfoCircle = faInfoCircle;
+  faSave = faSave;
+  faEdit = faEdit;
+  faTrash = faTrash;
+  faCheck = faCheck;
+
   // Modal properties
   showModal = false;
   showLargeModal = false;
@@ -20,10 +36,6 @@ export class ComponentsComponent implements OnInit {
   showErrorToast = false;
   showInfoToast = false;
   showWarningToast = false;
-  
-  // Form
-  contactForm: FormGroup;
-  formSubmitted = false;
   
   // Card tabs
   activeCardTab = 'standard';
@@ -58,17 +70,7 @@ export class ComponentsComponent implements OnInit {
     }
   ];
   
-  constructor(private fb: FormBuilder) {
-    this.contactForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-      subject: ['', Validators.required],
-      message: ['', [Validators.required, Validators.minLength(10)]]
-    });
-  }
-  
-  ngOnInit(): void {}
-  
+
   // Modal methods
   openModal(): void {
     this.showModal = true;
@@ -125,29 +127,9 @@ export class ComponentsComponent implements OnInit {
     else if (type === 'info') this.showInfoToast = false;
     else if (type === 'warning') this.showWarningToast = false;
   }
-  
-  // Form methods
-  onSubmit(): void {
-    this.formSubmitted = true;
-    
-    if (this.contactForm.valid) {
-      console.log('Form submitted', this.contactForm.value);
-      this.showToast('success');
-      this.contactForm.reset();
-      this.formSubmitted = false;
-    } else {
-      this.showToast('error');
-    }
-  }
-  
+
   // Card tabs method
   setActiveCardTab(tabId: string): void {
     this.activeCardTab = tabId;
   }
-  
-  // Form validation getters
-  get name() { return this.contactForm.get('name'); }
-  get email() { return this.contactForm.get('email'); }
-  get subject() { return this.contactForm.get('subject'); }
-  get message() { return this.contactForm.get('message'); }
 }

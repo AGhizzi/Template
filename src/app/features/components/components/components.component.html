@@ -1,486 +1,112 @@
 <div class="components-container">
-  <!-- Section Title -->
   <header class="components-header">
-    <h1>UI Components</h1>
-    <p class="lead">A comprehensive collection of reusable UI components for your application</p>
+    <h1>Modern UI Components</h1>
+    <p class="lead">A collection of beautifully designed, responsive components for your application</p>
   </header>
 
-  <!-- 1. Modals Section -->
-  <section class="component-section">
-    <h2 class="section-title">Modals</h2>
-    <p class="section-description">Modal dialogs for notifications, user confirmations, and complex forms.</p>
-    
-    <div class="component-examples">
-      <div class="example-box">
-        <h3>Basic Modal</h3>
-        <p>A simple modal dialog with a title, body content and close button.</p>
-        <button class="btn btn-primary" (click)="openModal()">Open Modal</button>
-      </div>
-      
-      <div class="example-box">
-        <h3>Large Modal</h3>
-        <p>A larger modal with more content and custom styling.</p>
-        <button class="btn btn-primary" (click)="openLargeModal()">Open Large Modal</button>
-      </div>
-      
-      <div class="example-box">
-        <h3>Confirmation Modal</h3>
-        <p>A modal that asks for user confirmation before proceeding.</p>
-        <button class="btn btn-primary" (click)="openConfirmModal()">Confirm Action</button>
-      </div>
-    </div>
-    
-    <!-- Modal implementations -->
-    <!-- Basic Modal -->
-    <div class="modal-backdrop" *ngIf="showModal" (click)="closeModal()"></div>
-    <div class="modal" *ngIf="showModal" [class.show]="showModal">
-      <div class="modal-dialog" (click)="$event.stopPropagation()">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Basic Modal</h4>
-            <button type="button" class="close-btn" (click)="closeModal()">&times;</button>
-          </div>
-          <div class="modal-body">
-            <p>This is a basic modal dialog that can be used for simple messages or notifications.</p>
-            <p>Click outside the modal or the close button to dismiss.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Large Modal -->
-    <div class="modal-backdrop" *ngIf="showLargeModal" (click)="closeLargeModal()"></div>
-    <div class="modal" *ngIf="showLargeModal" [class.show]="showLargeModal">
-      <div class="modal-dialog modal-lg" (click)="$event.stopPropagation()">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Large Modal</h4>
-            <button type="button" class="close-btn" (click)="closeLargeModal()">&times;</button>
-          </div>
-          <div class="modal-body">
-            <p>This is a larger modal dialog with more content. It's suitable for forms, detailed information, or complex interactions.</p>
-            <div class="content-example">
-              <h5>Modal Content Example</h5>
-              <p>You can place various types of content here:</p>
-              <ul>
-                <li>Forms and inputs</li>
-                <li>Tables and data</li>
-                <li>Media like images or videos</li>
-                <li>Charts and interactive elements</li>
-              </ul>
-              <div class="placeholder-box">
-                <span>Content Area</span>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" (click)="closeLargeModal()">Cancel</button>
-            <button type="button" class="btn btn-primary">Save Changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Rest of the template remains the same... -->
-    <!-- Confirmation Modal -->
-    <div class="modal-backdrop" *ngIf="showConfirmModal" (click)="closeConfirmModal()"></div>
-    <div class="modal" *ngIf="showConfirmModal" [class.show]="showConfirmModal">
-      <div class="modal-dialog modal-confirm" (click)="$event.stopPropagation()">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Confirm Action</h4>
-            <button type="button" class="close-btn" (click)="closeConfirmModal()">&times;</button>
-          </div>
-          <div class="modal-body">
-            <div class="confirm-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-                <line x1="12" y1="9" x2="12" y2="13"></line>
-                <line x1="12" y1="17" x2="12.01" y2="17"></line>
-              </svg>
-            </div>
-            <p class="confirm-message">Are you sure you want to perform this action? This cannot be undone.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" (click)="closeConfirmModal()">Cancel</button>
-            <button type="button" class="btn btn-danger" (click)="confirmAction()">Confirm</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 2. Notifications Section -->
-  <section class="component-section">
-    <h2 class="section-title">Notifications</h2>
-    <p class="section-description">Toast notifications for important alerts, messages and confirmations.</p>
-    
-    <div class="component-examples">
-      <div class="example-box">
-        <h3>Success Toast</h3>
-        <p>Notify users of successful operations.</p>
-        <button class="btn btn-success" (click)="showToast('success')">Show Success</button>
-      </div>
-      
-      <div class="example-box">
-        <h3>Error Toast</h3>
-        <p>Alert users about errors or failed operations.</p>
-        <button class="btn btn-danger" (click)="showToast('error')">Show Error</button>
-      </div>
-      
-      <div class="example-box">
-        <h3>Info Toast</h3>
-        <p>Provide general information to users.</p>
-        <button class="btn btn-info" (click)="showToast('info')">Show Info</button>
-      </div>
-      
-      <div class="example-box">
-        <h3>Warning Toast</h3>
-        <p>Warn users about potential issues.</p>
-        <button class="btn btn-warning" (click)="showToast('warning')">Show Warning</button>
-      </div>
-    </div>
-    
-    <!-- Toast Container -->
-    <div class="toast-container">
-      <!-- Success Toast -->
-      <div class="toast toast-success" *ngIf="showSuccessToast">
-        <div class="toast-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-          </svg>
-        </div>
-        <div class="toast-content">
-          <h4 class="toast-title">Success</h4>
-          <p class="toast-message">Operation completed successfully!</p>
-        </div>
-        <button class="toast-close" (click)="closeToast('success')">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-      
-      <!-- Error Toast -->
-      <div class="toast toast-error" *ngIf="showErrorToast">
-        <div class="toast-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="15" y1="9" x2="9" y2="15"></line>
-            <line x1="9" y1="9" x2="15" y2="15"></line>
-          </svg>
-        </div>
-        <div class="toast-content">
-          <h4 class="toast-title">Error</h4>
-          <p class="toast-message">An error occurred. Please try again.</p>
-        </div>
-        <button class="toast-close" (click)="closeToast('error')">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-      
-      <!-- Info Toast -->
-      <div class="toast toast-info" *ngIf="showInfoToast">
-        <div class="toast-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="16" x2="12" y2="12"></line>
-            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-          </svg>
-        </div>
-        <div class="toast-content">
-          <h4 class="toast-title">Information</h4>
-          <p class="toast-message">Here's some information you should know.</p>
-        </div>
-        <button class="toast-close" (click)="closeToast('info')">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-      
-      <!-- Warning Toast -->
-      <div class="toast toast-warning" *ngIf="showWarningToast">
-        <div class="toast-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-            <line x1="12" y1="9" x2="12" y2="13"></line>
-            <line x1="12" y1="17" x2="12.01" y2="17"></line>
-          </svg>
-        </div>
-        <div class="toast-content">
-          <h4 class="toast-title">Warning</h4>
-          <p class="toast-message">Please proceed with caution.</p>
-        </div>
-        <button class="toast-close" (click)="closeToast('warning')">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. Forms Section -->
-  <section class="component-section">
-    <h2 class="section-title">Forms</h2>
-    <p class="section-description">Form elements and validation for collecting user input.</p>
-    
-    <div class="component-demo">
-      <h3>Contact Form Example</h3>
-      
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" formControlName="name" class="form-control" 
-                [class.is-invalid]="formSubmitted && name?.invalid">
-          <div *ngIf="formSubmitted && name?.invalid" class="invalid-feedback">
-            <div *ngIf="name?.errors?.['required']">Name is required</div>
-            <div *ngIf="name?.errors?.['minlength']">Name must be at least 3 characters</div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" formControlName="email" class="form-control"
-                [class.is-invalid]="formSubmitted && email?.invalid">
-          <div *ngIf="formSubmitted && email?.invalid" class="invalid-feedback">
-            <div *ngIf="email?.errors?.['required']">Email is required</div>
-            <div *ngIf="email?.errors?.['email']">Please enter a valid email address</div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <select id="subject" formControlName="subject" class="form-control"
-                 [class.is-invalid]="formSubmitted && subject?.invalid">
-            <option value="">Select a subject</option>
-            <option value="general">General Inquiry</option>
-            <option value="support">Technical Support</option>
-            <option value="billing">Billing Question</option>
-            <option value="other">Other</option>
-          </select>
-          <div *ngIf="formSubmitted && subject?.invalid" class="invalid-feedback">
-            <div *ngIf="subject?.errors?.['required']">Please select a subject</div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" formControlName="message" class="form-control" rows="5"
-                   [class.is-invalid]="formSubmitted && message?.invalid"></textarea>
-          <div *ngIf="formSubmitted && message?.invalid" class="invalid-feedback">
-            <div *ngIf="message?.errors?.['required']">Message is required</div>
-            <div *ngIf="message?.errors?.['minlength']">Message must be at least 10 characters</div>
-          </div>
-        </div>
-        
-        <div class="form-actions">
-          <button type="reset" class="btn btn-secondary">Reset</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- 4. Cards Section -->
+  <!-- Cards Section -->
   <section class="component-section">
     <h2 class="section-title">Cards</h2>
-    <p class="section-description">Card components for displaying content in containers.</p>
-    
-    <!-- Tabs Navigation -->
-    <div class="component-tabs">
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link" [class.active]="activeCardTab === 'standard'" (click)="setActiveCardTab('standard')">Standard Cards</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [class.active]="activeCardTab === 'horizontal'" (click)="setActiveCardTab('horizontal')">Horizontal Cards</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [class.active]="activeCardTab === 'featured'" (click)="setActiveCardTab('featured')">Featured Cards</a>
-        </li>
-      </ul>
+    <p class="section-description">Various card layouts for different content types</p>
+
+    <div class="cards-grid">
+      <!-- Feature Card -->
+      <div class="card feature-card">
+        <div class="card-icon">
+          <fa-icon [icon]="faRocket" class="text-primary"></fa-icon>
+        </div>
+        <h3>Feature Card</h3>
+        <p>Highlight key features with these eye-catching cards</p>
+        <button class="btn btn-primary">Learn More</button>
+      </div>
+
+      <!-- Stat Card -->
+      <div class="card stat-card">
+        <div class="stat-number">2.4k</div>
+        <div class="stat-label">Active Users</div>
+        <div class="stat-trend positive">
+          <fa-icon [icon]="faArrowUp"></fa-icon>
+          <span>12% increase</span>
+        </div>
+      </div>
+
+      <!-- Profile Card -->
+      <div class="card profile-card">
+        <div class="profile-header">
+          <img src="assets/profile-placeholder.jpg" alt="Profile" class="profile-image">
+          <div class="profile-badges">
+            <span class="badge pro">PRO</span>
+          </div>
+        </div>
+        <div class="profile-info">
+          <h4>Jane Cooper</h4>
+          <p>Product Designer</p>
+        </div>
+        <div class="profile-actions">
+          <button class="btn btn-outline">Message</button>
+          <button class="btn btn-primary">Follow</button>
+        </div>
+      </div>
     </div>
-    
-    <!-- Card Tab Content -->
-    <div class="card-tab-content">
-      <!-- Standard Cards Tab -->
-      <div class="card-tab-pane" [class.active]="activeCardTab === 'standard'">
-        <div class="cards-grid">
-          <!-- Basic Card -->
-          <div class="card" *ngFor="let card of standardCards">
-            <!-- Image Card -->
-            <img *ngIf="card.imageUrl" [src]="card.imageUrl" class="card-img-top" alt="Card image">
-            
-            <div class="card-body" [ngClass]="{'card-primary': card.type === 'styled' && card.color === 'primary'}">
-              <h5 class="card-title">{{ card.title }}</h5>
-              <p class="card-text">{{ card.content }}</p>
-            </div>
-            
-            <div class="card-footer" *ngIf="card.footer || card.actions">
-              <span *ngIf="card.footer">{{ card.footer }}</span>
-              
-              <div class="card-actions" *ngIf="card.actions">
-                <button class="btn btn-sm btn-primary" *ngFor="let action of card.actions">{{ action }}</button>
-              </div>
-            </div>
-          </div>
+  </section>
+
+  <!-- Alerts Section -->
+  <section class="component-section">
+    <h2 class="section-title">Alerts</h2>
+    <p class="section-description">Notification components for different message types</p>
+
+    <div class="alerts-container">
+      <div class="alert alert-success">
+        <fa-icon [icon]="faCheckCircle"></fa-icon>
+        <div class="alert-content">
+          <h4>Success!</h4>
+          <p>Your changes have been saved successfully.</p>
         </div>
       </div>
-      
-      <!-- Horizontal Cards Tab (Long rectangles) -->
-      <div class="card-tab-pane" [class.active]="activeCardTab === 'horizontal'">
-        <div class="horizontal-cards">
-          <!-- Horizontal Card 1 -->
-          <div class="card horizontal-card">
-            <div class="card-horizontal-content">
-              <div class="card-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="8" r="7"></circle>
-                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                </svg>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Achievement Card</h5>
-                <p class="card-text">This horizontal card style is perfect for lists, achievements, or status indicators. The elongated rectangle provides more space for content.</p>
-              </div>
-              <div class="card-badge">
-                <span class="badge badge-success">Completed</span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Horizontal Card 2 -->
-          <div class="card horizontal-card">
-            <div class="card-horizontal-content">
-              <div class="card-icon card-icon-info">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
-                  <line x1="4" y1="22" x2="4" y2="15"></line>
-                </svg>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Progress Tracker</h5>
-                <p class="card-text">Track your progress with these horizontal status cards. They can include progress bars, status indicators, and quick actions.</p>
-                <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Horizontal Card 3 -->
-          <div class="card horizontal-card">
-            <div class="card-horizontal-content">
-              <div class="card-image">
-                <img src="https://via.placeholder.com/100" alt="Thumbnail">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Media Card</h5>
-                <p class="card-text">Horizontal cards are excellent for media content with thumbnails and descriptions, similar to video or article listings.</p>
-                <div class="card-meta">
-                  <span class="meta-item">5 min read</span>
-                  <span class="meta-item">42 views</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Horizontal Card 4 -->
-          <div class="card horizontal-card">
-            <div class="card-horizontal-content">
-              <div class="card-icon card-icon-warning">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-                </svg>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Activity Card</h5>
-                <p class="card-text">These cards can display activity metrics, status updates, or system notifications in a clean horizontal layout.</p>
-              </div>
-              <div class="card-actions-vertical">
-                <button class="btn btn-sm btn-primary">View</button>
-                <button class="btn btn-sm btn-outline-secondary">Dismiss</button>
-              </div>
-            </div>
-          </div>
+
+      <div class="alert alert-warning">
+        <fa-icon [icon]="faExclamationTriangle"></fa-icon>
+        <div class="alert-content">
+          <h4>Warning</h4>
+          <p>Please backup your data before proceeding.</p>
         </div>
       </div>
-      
-      <!-- Featured Cards Tab -->
-      <div class="card-tab-pane" [class.active]="activeCardTab === 'featured'">
-        <div class="featured-cards">
-          <!-- Featured Card 1 -->
-          <div class="card featured-card">
-            <div class="card-ribbon">New</div>
-            <div class="card-body">
-              <h5 class="card-title">Featured Plan</h5>
-              <div class="card-price">
-                <span class="currency">$</span>
-                <span class="amount">49</span>
-                <span class="period">/month</span>
-              </div>
-              <ul class="feature-list">
-                <li>All core features</li>
-                <li>Up to 10 users</li>
-                <li>50GB storage</li>
-                <li>Priority support</li>
-              </ul>
-              <button class="btn btn-primary btn-block">Get Started</button>
-            </div>
-          </div>
-          
-          <!-- Featured Card 2 -->
-          <div class="card featured-card featured-card-dark">
-            <div class="card-body">
-              <div class="card-icon-large">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                </svg>
-              </div>
-              <h5 class="card-title">Premium Features</h5>
-              <p class="card-text">Unlock advanced capabilities with our premium tier, designed for power users.</p>
-              <div class="card-meta">
-                <span class="badge badge-primary">Recommended</span>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Featured Card 3 -->
-          <div class="card featured-card featured-card-gradient">
-            <div class="card-body">
-              <h5 class="card-title">Special Offer</h5>
-              <p class="card-text">Limited time offer: Get 30% off when you sign up for an annual subscription.</p>
-              <div class="countdown">
-                <div class="countdown-item">
-                  <span class="countdown-value">2</span>
-                  <span class="countdown-label">Days</span>
-                </div>
-                <div class="countdown-item">
-                  <span class="countdown-value">18</span>
-                  <span class="countdown-label">Hours</span>
-                </div>
-                <div class="countdown-item">
-                  <span class="countdown-value">45</span>
-                  <span class="countdown-label">Minutes</span>
-                </div>
-              </div>
-              <button class="btn btn-light btn-block">Claim Offer</button>
-            </div>
-          </div>
+
+      <div class="alert alert-info">
+        <fa-icon [icon]="faInfoCircle"></fa-icon>
+        <div class="alert-content">
+          <h4>Information</h4>
+          <p>A new version is available for download.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Buttons Section -->
+  <section class="component-section">
+    <h2 class="section-title">Buttons</h2>
+    <p class="section-description">Different button styles and variations</p>
+
+    <div class="buttons-container">
+      <button class="btn btn-primary">
+        <fa-icon [icon]="faSave"></fa-icon>
+        Save Changes
+      </button>
+
+      <button class="btn btn-secondary">
+        <fa-icon [icon]="faEdit"></fa-icon>
+        Edit
+      </button>
+
+      <button class="btn btn-danger">
+        <fa-icon [icon]="faTrash"></fa-icon>
+        Delete
+      </button>
+
+      <button class="btn btn-success">
+        <fa-icon [icon]="faCheck"></fa-icon>
+        Approve
+      </button>
     </div>
   </section>
 </div>
