@@ -129,17 +129,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
       this.activeMenuItem = 'components';
     }
   }
-      this.activeMenuItem = 'pie-charts';
-      this.expandedItems = ['charts'];
-    } else if (url.includes('/charts/line-charts')) {
-      this.activeMenuItem = 'line-charts';
-      this.expandedItems = ['charts'];
-    } else if (url.includes('/tables')) {
-      this.activeMenuItem = 'tables';
-    } else if (url.includes('/buttons')) {
-      this.activeMenuItem = 'buttons';
-    }
-  }
   
   /**
    * Handle window resize
