@@ -10,6 +10,17 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
   styleUrls: ['./components.component.scss']  // Note: Changed from styleUrl to styleUrls
 })
 export class ComponentsComponent implements OnInit {
+  // Icons
+  faClose = faClose;
+  faCheck = faCheck;
+  faInfo = faInfo;
+  faWarning = faWarning;
+  faEdit = faEdit;
+  faTrash = faTrash;
+  faPlus = faPlus;
+  faStar = faStar;
+  faBell = faBell;
+
   // Modal properties
   showModal = false;
   showLargeModal = false;

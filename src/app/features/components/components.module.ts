@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ComponentsRoutingModule } from './components-routing.module';
 import { ComponentsComponent } from './components/components.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [],
@@ -12,7 +13,8 @@ import { ComponentsComponent } from './components/components.component';
     FormsModule,
     ReactiveFormsModule,
     ComponentsRoutingModule,
-    ComponentsComponent
+    ComponentsComponent,
+    FontAwesomeModule
   ]
 })
 export class ComponentsModule { }
